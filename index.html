@@ -58,7 +58,7 @@
       <section class="interests-nationalities">
         <label for="nationality">Nationality: </label>
 
-        <select tabindex="7" name="nationality" required> <!-- tab indexes from here and below might be changed -->
+        <select name="nationality" required>
           <option value="" disabled selected>Choose</option>
           <option value="estonian">Estonian</option>
           <option value="filipino">Filipino</option>
@@ -68,7 +68,7 @@
 
         <label for="interests">Interests: </label>
 
-        <select tabindex="8" name="interests" multiple size="1" required>
+        <select name="interests" multiple size="1" required>
           <option value="games">Games</option>
           <option value="books">Books</option>
           <option value="movies">Movies</option>
@@ -80,21 +80,29 @@
       <section class="the-rest">
         <label for="social-attitude" hidden="true">Social attitude</label> <!-- This should be visually hidden by display:none -->
         <span>Introvert</span>
-        <input tabindex="9" type="range" id="social-attitude" name="social-attitude" aria-describedby="social-attitude-hint" min="1" max="9"> <!-- max=9 is not very smooth, but it is easy to enter using just a keybord -->
+        <input type="range" id="social-attitude" name="social-attitude" aria-describedby="social-attitude-hint" min="1" max="9"> <!-- max=9 is not very smooth, but it is easy to enter using just a keybord -->
         <span>Extravert</span>
         <p id="social-attitude-hint" hidden="true">1 is the most introverted, 9 is the most extraverted</p> <!-- This should be visually hidden by display:none -->
 
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
         <fieldset>
             <legend>About me</legend>
-            <textarea tabindex="10" id="about-me" name="about-me" rows="3" cols="50" placeholder="Write a few words about yourself"></textarea> <!-- rows="3" cols="50" might be changed in the future -->
+            <textarea id="about-me" name="about-me" rows="3" cols="50" placeholder="Write a few words about yourself"></textarea> <!-- rows="3" cols="50" might be changed in the future -->
         </fieldset>
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
 
-        <input tabindex="11" type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
+
+        <input type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
         <label for="agreed">I agree to the terms of service</label>
       </section>
-      <button tabindex="12" type="submit">Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   </main>
   <footer>
