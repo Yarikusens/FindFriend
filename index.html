@@ -3,64 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find Friend | Sign up</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
     <nav>
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Browse</a>
-        </li>
-        <li>
-          <a href="#">Profile</a>
-        </li>
-      </ul>
+        <a href="#">Home</a>
+        <a href="#">Browse</a>
+        <a href="#">Profile</a>
     </nav>
     <div>
-      <h1>FindFriend</h1>
+      <h1>Find Friend</h1>
       <aside><img src=""><img src=""></aside>
       <h2>Sign Up</h2>
     </div>
   </header>
   <main>
     <form action=""> <!-- method="post" -->
-      <section class="personal-info-and-photo">
+        <section class="personal-info-and-photo">
+            <section class="personal-info">
+                <content class="FullName">
+                    <input placeholder="Name" name="Name">
+                    <input placeholder="Surname" name="Name">
+                </content>
+    
+                <br>
+    
+                <content class="Gender">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+    
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+    
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </content>
+    
+                <br>
+    
+                <content class="Birthday">
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </content>
+            </section>
 
-        <content class="FullName">
-          <input placeholder="Name" name="Name">
-          <input placeholder="Surname" name="Name">
-        </content>
-
-        <br>
-
-        <content class="Gender">
-          <input type="radio" id="male" name="gender" value="male">
-          <label for="male">Male</label>
-
-          <input type="radio" id="female" name="gender" value="female">
-          <label for="female">Female</label>
-
-          <input type="radio" id="other" name="gender" value="other">
-          <label for="other">Other</label>
-        </content>
-
-        <br>
-
-        <content class="Birthday">
-          <label for="birthday">Birthday:</label>
-          <input type="date" id="birthdate" name="birthdate">
-        </content>
-
-        <br>
-
-        <content class="Upload-Photo">
-          <label for = "Upload-Photo"> Upload Photo </label>
-          <input type = "file" id="upload" name="upload-photo">
-        </content>
+            <content class="Upload-Photo">
+                <input type = "file" id="upload" name="upload-photo">
+                <label for = "Upload-Photo"> Upload Photo </label>
+            </content>
       </section>
 
       <section class="interests-nationalities">
@@ -93,10 +85,10 @@
         <p id="social-attitude-hint" hidden="true">1 is the most introverted, 9 is the most extraverted</p> <!-- This should be visually hidden by display:none -->
 
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
-
-        <label for="about-me">About me</label>
-        <textarea tabindex="10" id="about-me" name="about-me" rows="3" cols="50" placeholder="Write a few words about yourself"></textarea> <!-- rows="3" cols="50" might be changed in the future -->
-
+        <fieldset>
+            <legend>About me</legend>
+            <textarea tabindex="10" id="about-me" name="about-me" rows="3" cols="50" placeholder="Write a few words about yourself"></textarea> <!-- rows="3" cols="50" might be changed in the future -->
+        </fieldset>
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
 
         <input tabindex="11" type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
@@ -106,7 +98,7 @@
     </form>
   </main>
   <footer>
-
+    <p>@Copyrights to VIA University Collage</p>
   </footer>
 </body>
 </html>
