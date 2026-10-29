@@ -15,7 +15,7 @@
   --title-h1-fs: 40px;
   --title-h1-fw: 800;
   --title-h2-fs: 20px;
-  --title-h2-fw: 600;
+  --title-h2-fw: 500;
   --title-shadow-color: rgb(128, 128, 128); /* 128, 128, 128 = gray */
 
   --radio-checked-bg: rgb(255, 255, 255); /* 255, 255, 255 = white*/
@@ -23,7 +23,7 @@
 
   --photo-label-fs: 30px;
 
-  --social-attitude-bg: rbg(255, 255, 255); /* 255, 255, 255 = white*/
+  --social-attitude-bg: rgb(255, 255, 255); /* 255, 255, 255 = white*/
 
   --legend-fs: 23px;
 
@@ -35,6 +35,9 @@
 html,
 body {
   height: 100%;
+}
+body{
+  margin: 0;
 }
 
 * {
@@ -115,25 +118,33 @@ h1 {
   font-family: "Indie Flower", cursive;
   font-weight: var(--title-h1-fw);
   font-size: var(--title-h1-fs);
-  margin: 80px 0 -10px;
   text-shadow: 2px 2px 4px var(--title-shadow-color);
+  margin-block: 0em;
+  margin-top: 1em;
+  position: relative;
 }
 
+img{
+  position: absolute;
+}
 h2 {
   font-size: var(--title-h2-fs);;
   font-weight: var(--title-h2-fw);
-  margin: 0 0 -85px;
+  text-shadow: 2px 2px 4px var(--title-shadow-color);
+  margin-block: 0em;
 }
 
-img {
-  width: 50px;
-  height: auto;
-  margin: 0 0 80px;
+.heart1 {
+  width: 40px;
+  transform: scaleX(-1) rotate(40deg);
+  top: 15%;
+  left: 35%;
 }
 
-#hearts2 {
-  transform: scaleX(-1);
-  margin-left: 250;
+.heart2 {
+  width: 45px;
+  bottom: 5%;
+  right: 33%;
 }
 /*#endregion */
 
@@ -180,7 +191,7 @@ img {
 .Gender {
   width: 100%;
   justify-content: space-evenly;
-  gap: 14 px;
+  gap: 14px;
 }
 
 .Gender input {
@@ -191,11 +202,18 @@ img {
   border-radius: 50%;
   background: var(--bg-color-2);
   cursor: pointer;
+  margin: 0;
+  margin-right: 0.5em;
 }
 
 .Gender input:checked {
   background-color: var(--radio-checked-bg);
   border: 2px solid var(--radio-checked-border);
+}
+
+.Gender div{
+  display: flex;
+  align-items: center;
 }
 
 /* Photo upload */
@@ -244,33 +262,56 @@ img {
 
 /* Social attitude slider */
 #social-attitude {
-  -webkit-appearance: none;
-  appearance: non;
-  border: 0px;
-  border-radius: 50px;
-  outline: none;
-  width: 45%;
-  height: 6px;
-  background: var(--social-attitude-bg);
-  accent-color: var(--bg-color-2);
-  padding: 4px;
-  cursor: pointer;
-  margin-bottom: 50px;
-}
+  --thumb-size: 16px;
+  --track-height: 14px;
+  --fill-end: calc(
+    var(--thumb-size) / 2 + var(--progress, 0) * (100% - var(--thumb-size))
+  );
 
-#social-attitude::-webkit-hover-thumb {
-  background-color: var(--social-attitude-bg);
   -webkit-appearance: none;
   appearance: none;
+  width: 45%;
+  height: var(--track-height);
+  padding: 0;
+  border: 0;
   border-radius: 50px;
+  outline: none;
   cursor: pointer;
-  margin-top: -5px;
+  margin-bottom: 50px;
+  background: linear-gradient(
+    to right,
+    var(--bg-color-2) var(--fill-end),
+    var(--social-attitude-bg) var(--fill-end)
+  );
 }
 
-#social-attitude::-moz-range-thumb {
-  background-color: var(--social-attitude-bg);
+/* Chrome / Safari / Edge */
+#social-attitude::-webkit-slider-runnable-track {
+  height: var(--track-height);
+  background: transparent;
+}
+#social-attitude::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
   border: none;
-  cursor: pointer;
+  border-radius: 50%;
+  background: var(--bg-color-2);
+}
+
+/* Firefox */
+#social-attitude::-moz-range-track {
+  height: var(--track-height);
+  background: transparent;
+}
+#social-attitude::-moz-range-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-color-2);
 }
 
 /* About me */
@@ -286,6 +327,8 @@ legend {
 }
 
 textarea {
+  field-sizing: content;
+  min-height: 50px;
   border: 0px;
   background-color: transparent;
   width: 100%;

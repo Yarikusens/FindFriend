@@ -31,20 +31,11 @@
     </nav>
   </header>
   <main>
-    <div>
-      <h1 id="title">Find Friend</h1>
-      <h2>Sign Up</h2>
-      <div><img src="hearts.png" alt="heart decoration" id="hearts2"></div>
-      <img src="hearts.png" alt="heart decoration2" id="hearts1">
-      
-    </div>
-    <!-- <div>
-      <h1>Find Friend</h1>
-      <div class = "hearts">
-        <aside><img src="hearts.png" height="100px"><img src="hearts.png" height="100px"></aside>
-        <h2>Sign Up</h2>
-      </div> 
-    </div> -->
+    <h1>Find Friend
+      <img src="hearts.png" alt="heart decoration" class="heart1">
+      <img src="hearts.png" alt="heart decoration2" class="heart2">
+    </h1>
+    <h2>Sign Up</h2>
     <form action=""> <!-- method="post" -->
         <section class="personal-info-and-photo">
             <section class="personal-info">
@@ -56,14 +47,18 @@
                 <br>
     
                 <content class="Gender">
+                  <div>
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label>
-    
+                  </div>
+                  <div>
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
-    
+                  </div>
+                  <div>
                     <input type="radio" id="other" name="gender" value="other">
                     <label for="other">Other</label>
+                  </div>
                 </content>
     
                 <br>
@@ -136,28 +131,16 @@
   <footer>
     <p>@Copyrights to VIA University Collage</p>
   </footer>
-<script>
-  const notes = document.getElementById("about-me");
+  <script>
+    const slider = document.getElementById('social-attitude');
 
-function autoGrow() {
-    notes.style.height = "auto";
-    notes.style.height = notes.scrollHeight + "px";
-}
+    function updateSliderProgress() {
+      const ratio = (slider.value - slider.min) / (slider.max - slider.min);
+      slider.style.setProperty('--progress', ratio);
+    }
 
-notes.addEventListener("input", autoGrow);
-window.addEventListener("load", autoGrow);
-</script>
-<script>
-  const slider = document.getElementById('social-attitude');
-
-  function updateSliderBackground() {
-    const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-    slider.style.background = `linear-gradient(to right, #80a3c9 ${value}%, #ffffff ${value}%)`;
-  }
-
-  slider.addEventListener('input', updateSliderBackground);
-  updateSliderBackground();
-</script>
- 
+    slider.addEventListener('input', updateSliderProgress);
+    updateSliderProgress();
+  </script>
 </body>
 </html>
