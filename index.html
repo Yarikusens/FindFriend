@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Find Friend | Sign Up</title>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +11,46 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Relief:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gveret+Levin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header>
     <nav>
-        <a href="#">Home</a>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
         <a href="#">Browse</a>
+        </li>
+        <li>
         <a href="#">Profile</a>
+        </li>
     </nav>
-    <div>
-      <h1>Find Friend</h1>
-      <aside><img src=""><img src=""></aside>
-      <h2>Sign Up</h2>
-    </div>
   </header>
   <main>
+    <div>
+      <h1 id="title">Find Friend</h1>
+      <h2>Sign Up</h2>
+      <div><img src="hearts.png" alt="heart decoration" id="hearts2"></div>
+      <img src="hearts.png" alt="heart decoration2" id="hearts1">
+      
+    </div>
+    <!-- <div>
+      <h1>Find Friend</h1>
+      <div class = "hearts">
+        <aside><img src="hearts.png" height="100px"><img src="hearts.png" height="100px"></aside>
+        <h2>Sign Up</h2>
+      </div> 
+    </div> -->
     <form action=""> <!-- method="post" -->
         <section class="personal-info-and-photo">
             <section class="personal-info">
                 <content class="FullName">
                     <input placeholder="Name" name="Name">
-                    <input placeholder="Surname" name="Name">
+                    <input placeholder="Surname" name="Surname">
                 </content>
     
                 <br>
@@ -57,25 +75,24 @@
             </section>
 
             <content class="Upload-Photo">
-                <input type = "file" id="upload" name="upload-photo">
-                <label for = "Upload-Photo"> Upload Photo </label>
+                <input type="file" id="upload" hidden>
+                <label for = "Upload-Photo">+</label>
+                <p>Upload Photo</p>
+
             </content>
       </section>
 
       <section class="interests-nationalities">
-        <label for="nationality">Nationality: </label>
 
         <select name="nationality" required>
-          <option value="" disabled selected>Choose</option>
+          <option value="" disabled selected>Nationality</option>
           <option value="estonian">Estonian</option>
           <option value="filipino">Filipino</option>
           <option value="norwegian">Norwegian</option>
           <option value="ukrainian">Ukrainian</option>
         </select>
-
-        <label for="interests">Interests: </label>
-
         <select name="interests" multiple size="1" required>
+          <option value="" disabled selected>Interests</option>
           <option value="games">Games</option>
           <option value="books">Books</option>
           <option value="movies">Movies</option>
@@ -109,11 +126,38 @@
         <input type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
         <label for="agreed">I agree to the terms of service</label>
       </section>
-      <button type="submit">Sign Up</button>
+
+      <div class="button-container">
+      <button type="submit" id="button">Sign Up</button>
+      </div>
+
     </form>
   </main>
   <footer>
     <p>@Copyrights to VIA University Collage</p>
   </footer>
+<script>
+  const notes = document.getElementById("about-me");
+
+function autoGrow() {
+    notes.style.height = "auto";
+    notes.style.height = notes.scrollHeight + "px";
+}
+
+notes.addEventListener("input", autoGrow);
+window.addEventListener("load", autoGrow);
+</script>
+<script>
+  const slider = document.getElementById('social-attitude');
+
+  function updateSliderBackground() {
+    const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    slider.style.background = `linear-gradient(to right, #80a3c9 ${value}%, #ffffff ${value}%)`;
+  }
+
+  slider.addEventListener('input', updateSliderBackground);
+  updateSliderBackground();
+</script>
+ 
 </body>
 </html>

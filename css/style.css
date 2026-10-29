@@ -2,37 +2,45 @@ html,
 body {
   height: 100%;
 }
+::placeholder {
+  color: white;
+}
+* {
+  font-family: "Gveret Levin", cursive !important;
+  color: white !important;
+}
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #9fb2bb;
-  font-family:
-    "Comic Relief",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  background-color: #adcdf2;
+  font-family: "Gveret Levin", cursive;
 }
 
 main {
   min-width: 600px;
   width: 80%;
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .personal-info-and-photo {
   display: flex;
+  width: 100%;
+  margin: none;
+  padding: none;
   flex-direction: row;
+}
+
+main section {
+  margin-bottom: 50px;
+}
+
+.personal-info {
+  width: 50%;
+  justify-content: space-evenly;
+  align-content: space-evenly;
 }
 
 .Upload-Photo {
@@ -41,21 +49,50 @@ main {
   width: 50%;
 }
 
-.Upload-Photo input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
+.Upload-Photo label {
+  cursor: pointer;
+  background-color: #9bbde4;
+  width: 170px;
+  height: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 30px;
+  margin-bottom: -27px;
 }
 
-.personal-info {
-  width: 50%;
+.Gender {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
+
+.Gender input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: #80a3c9;
+  cursor: pointer;
+}
+.Gender input:checked {
+  background-color: white;
+  border: 2px solid rgb(203, 221, 228);
+}
+
 .FullName,
 .Gender,
 .Birthday {
   display: flex;
-  min-width: 0;
+}
+
+.FullName {
+  width: 100%;
+  justify-content: space-between;
 }
 
 .Gender {
@@ -64,39 +101,157 @@ main {
 
 .FullName input,
 .Birthday input {
-  flex: 1;
-  min-width: 0;
+  border: 0px;
+  width: 45% !important;
+  border-radius: 5px;
+  padding: 4px;
+  color: white !important;
+  background-color: #9bbde4;
+  outline: none;
+}
+
+.FullName input:last-child {
+}
+.interests-nationalities select {
+  border: 0px;
+  border-color: #0c1115;
+  color: white;
+  border-radius: 50px;
+  background-color: #80a3c9;
+  padding: 4px;
+  width: 45%;
+}
+#social-attitude {
+  -webkit-appearance: none;
+  appearance: non;
+  border: 0px;
+  border-radius: 50px;
+  outline: none;
+  width: 45%;
+  height: 6px;
+  background: white;
+  accent-color: #80a3c9;
+  padding: 4px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+#social-attitude::-webkit-hover-thumb {
+  background-color: #80a3c9;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: -5px;
+}
+#social-attitude::-moz-range-thumb {
+  background-color: #80a3c9;
+  border: none;
+  cursor: pointer;
+}
+
+.interests-nationalities select option {
+  background-color: #80a3c9;
+}
+.the-rest input {
+  border: 0px;
+  border-radius: 5px;
+  background-color: #9bbde4;
+}
+
+fieldset {
+  background-color: #80a3c9;
+  border: 0px;
+  border-radius: 5px;
+}
+legend {
+  text-align: left;
+  font-size: 23px;
+}
+textarea {
+  border: 0px;
+  background-color: transparent;
+  width: 100%;
+  color: white !important;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+}
+main:first-child {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+h1 {
+  font-family: "Indie Flower", cursive !important;
+  font-weight: 800;
+  font-size: 40px;
+  margin: 0px;
+  margin-top: 80px;
+  margin-bottom: -10px;
+}
+img {
+  width: 50px;
+  height: auto;
+  margin: 0px;
+  margin-bottom: 80px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(247, 253, 255) !important;
+  margin: 0px;
+  margin-bottom: -85px;
+}
+
+#hearts2 {
+  margin-left: 250;
+}
+#hearts2 {
+  transform: scaleX(-1);
+  margin-left: 250;
+}
+
+#password,
+#email {
+  outline: none;
+  margin: 1rem;
 }
 
 footer {
   margin-top: auto;
 }
 
-nav {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  padding: 10px, 0px;
-}
-nav a {
-  color: black;
-  text-decoration: none;
+#title {
+  font-family: "Patrick Hand", cursive;
+  text-shadow: 2px 2px 4px gray;
 }
 
-h1 {
-  font-size: 2.2rem;
-  font-weight: normal;
-  margin: 1rem 0rem 0rem;
+.button-container {
+  text-align: center;
 }
-h2 {
-  font-size: 2.2rem;
-  font-weight: normal;
-  margin: 0rem 0rem 1.5rem;
+
+#button {
+  font-family: "Patrick Hand", cursive;
+  font-weight: bold;
+  background-color: #80a3c9;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 5px 20px;
+  cursor: pointer;
+  width: fit-content;
+  text-align: center;
+}
+
+#button:hover {
+  background-color: rgb(62, 70, 147);
+  box-shadow: 0 6px 12px;
+  transform: scale(1.05);
 }
 
 @media (max-width: 650px) {
   body {
-    background-color: rgb(207, 172, 172);
   }
 
   .personal-info-and-photo {
@@ -131,4 +286,34 @@ h2 {
   .the-rest {
     grid-area: d;
   }
+}
+
+header {
+  height: 4em; /* has to be changed */
+}
+nav {
+  /* margin-top: 2%; */
+  /* margin-bottom: 50px; */
+}
+nav a {
+  color: white;
+  padding: 0.5em 1.5em;
+  font-weight: 650;
+  font-size: 1.25em;
+  text-decoration: none;
+  border-end-end-radius: 6px;
+  border-end-start-radius: 6px;
+  background-color: #80a3c9;
+}
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline-block;
+}
+nav a:hover {
+  background-color: #50667e;
 }
