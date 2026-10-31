@@ -382,6 +382,19 @@ textarea {
 .agreement-of-terms a{
   color:var(--active-link-color);
 }
+.agreement-of-terms input {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  background-color: var(--bg-color-2);
+  
+}
+.agreement-of-terms input:checked {
+  background-color: rgb(57, 77, 100);
+  border: 3.5px solid rgb(140, 163, 211);
+}
+
 /*#endregion */
 
 /*#region 8. SUBMIT BUTTON */
