@@ -28,7 +28,7 @@
   --legend-fs: 23px;
 
   --submit-button-hover-bg: rgb(62, 70, 147);
-  --submit-button-hover-shadow: rgb(255, 255, 255); /* 255, 255, 255 = white*/
+  --submit-button-hover-shadow: rgb(223, 242, 255); /* 255, 255, 255 = white*/
 }
 
 /*#region 1. BASE / GLOBAL */
@@ -103,6 +103,7 @@ nav a {
   font-weight: var(--nav-fw);
   font-size: var(--nav-fs);
   text-decoration: none;
+  font-weight: 200;
   border-end-end-radius: 6px;
   border-end-start-radius: 6px;
   background-color: var(--nav-button-color);
@@ -174,6 +175,10 @@ h2 {
 .FullName {
   width: 100%;
   justify-content: space-between;
+}
+
+.Birthday label{
+    margin-right: 20px;
 }
 
 /* Text/date inputs inside Name and Birthday */
@@ -319,6 +324,7 @@ fieldset {
   background-color: var(--bg-color-2);
   border: 0px;
   border-radius: 5px;
+  margin-bottom: 30px;
 }
 
 legend {
@@ -343,6 +349,11 @@ textarea {
   outline: none;
   margin: 1rem;
 }
+.email-password{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
 /*#endregion */
 
 /*#region 8. SUBMIT BUTTON */
@@ -351,19 +362,22 @@ textarea {
 }
 
 #button {
-  font-weight: bold;
-  background-color: var(--bg-color-2);
+  background-color: var(--bg-color-1);
   border: none;
   border-radius: 28px;
   padding: 5px 20px;
   cursor: pointer;
   width: fit-content;
   text-align: center;
+  height: 56px;
+  width: 200px;
+  font-size: 30px;
+  margin-bottom: 40px;
 }
 
 #button:hover {
-  background-color: var(--submit-button-hover-bg);
-  box-shadow: 0 6px 12px var(--submit-button-hover-shadow);
+  background-color: var(--bg-color-2);
+  box-shadow: 0 1px 12px var(--submit-button-hover-shadow);
   transform: scale(1.05);
 }
 /*#endregion */
@@ -382,13 +396,21 @@ textarea {
     justify-items: center;
   }
 
+  h2 {
+    margin-bottom: 70px;
+  }
+
   .personal-info-and-photo {
     display: contents;
   }
 
   .personal-info {
     grid-area: a;
-    margin: auto;
+    margin-bottom: 70px;
+    width: 100%;
+/*     display: flex;
+    flex-direction: column;
+    justify-content: center; */
   }
 
   .interests-nationalities {
@@ -396,14 +418,31 @@ textarea {
     display: flex;
     flex-direction: column;
   }
+  
+  .interests-nationalities select{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+
+  }
 
   .Upload-Photo {
     grid-area: c;
     margin: auto;
+    margin-bottom: 50px;
+
   }
 
   .the-rest {
     grid-area: d;
+  }
+
+  .email-password{
+        flex-direction: column;
+  }
+
+  .email-password div {
+    height: auto;
   }
 }
 /*#endregion */
