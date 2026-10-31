@@ -72,7 +72,7 @@
             <content class="Upload-Photo">
                 <input type="file" id="upload" hidden>
                 <label for = "Upload-Photo">+</label>
-                <p>Upload Photo</p>
+                <p>Profile Picture</p>
 
             </content>
       </section>
@@ -106,15 +106,19 @@
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
         <fieldset>
             <legend>About me</legend>
-            <textarea id="about-me" name="about-me" placeholder="Write a few words about yourself"></textarea> <!-- rows="3" cols="50" might be changed in the future -->
+            <textarea id="about-me" name="about-me" placeholder="Write a few words about yourself"></textarea> 
         </fieldset>
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <div class="email-password">
+          <div class="email">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="password">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+        </div>
 
         <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
 
