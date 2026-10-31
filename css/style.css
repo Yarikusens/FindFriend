@@ -3,6 +3,7 @@
   
   --regular-text-color: rgb(255, 255, 255); /* 255, 255, 255 = white*/
   --global-bg-color: rgb(173 205 242);
+  --regular-fs: 1em;
 
   --bg-color-1: rgb(155 189 228);
   --bg-color-2: rgb(128 163 201);
@@ -11,6 +12,9 @@
   --nav-fs: 1.25em;
   --nav-button-color: rgb(128 163 201);
   --nav-button-hover-color: rgb(80 102 126);
+  --nav-button-padding-vertical: clamp(4px, 1vw, 10px);
+  --nav-button-padding-horizontal: clamp(8px, 2vw, 30px);
+  --nav-gap: clamp(10px, 3vw, 30px);
 
   --title-h1-fs: 40px;
   --title-h1-fw: 800;
@@ -26,6 +30,8 @@
   --social-attitude-bg: rgb(255, 255, 255); /* 255, 255, 255 = white*/
 
   --legend-fs: 23px;
+
+  --active-link-color: rgb(64, 129, 214);
 
   --submit-button-hover-bg: rgb(62, 70, 147);
   --submit-button-hover-shadow: rgb(223, 242, 255); /* 255, 255, 255 = white*/
@@ -43,6 +49,7 @@ body{
 * {
   font-family: "Gveret Levin", cursive;
   color: var(--regular-text-color);
+  font-size: var(--regular-fs);
 }
 
 ::placeholder {
@@ -57,13 +64,13 @@ body {
   background-color: var(--global-bg-color);
   font-family: "Gveret Levin", cursive;
 }
+
+.visually-hidden {
+  display: none;
+}
 /*#endregion */
 
 /*#region 2. PAGE LAYOUT (header, main, footer) */
-header {
-  height: 4em; /* has to be changed */
-}
-
 main {
   min-width: 600px;
   width: 80%;
@@ -74,10 +81,6 @@ main:first-child {
   display: flex;
   flex-direction: column;
   text-align: center;
-}
-
-main section {
-  margin-bottom: 50px;
 }
 
 footer {
@@ -97,9 +100,13 @@ nav ul {
 nav li {
   display: inline-block;
 }
+li:nth-of-type(1), li:nth-of-type(2) {
+  margin-right: var(--nav-gap);
+}
 
 nav a {
-  padding: 0.5em 1.5em;
+  display: inline-block;
+  padding: var(--nav-button-padding-vertical) var(--nav-button-padding-horizontal);
   font-weight: var(--nav-fw);
   font-size: var(--nav-fs);
   text-decoration: none;
@@ -107,6 +114,7 @@ nav a {
   border-end-end-radius: 6px;
   border-end-start-radius: 6px;
   background-color: var(--nav-button-color);
+  margin: none;
 }
 
 nav a:hover {
@@ -133,6 +141,7 @@ h2 {
   font-weight: var(--title-h2-fw);
   text-shadow: 2px 2px 4px var(--title-shadow-color);
   margin-block: 0em;
+  margin-bottom: 1em;
 }
 
 .heart1 {
@@ -156,6 +165,7 @@ h2 {
   margin: none;
   padding: none;
   flex-direction: row;
+  margin-bottom: 1em;
 }
 
 .personal-info {
@@ -196,7 +206,6 @@ h2 {
 .Gender {
   width: 100%;
   justify-content: space-evenly;
-  gap: 14px;
 }
 
 .Gender input {
@@ -250,11 +259,18 @@ h2 {
   border-radius: 50px;
   background-color: var(--bg-color-2);
   padding: 4px;
-  width: 45%;
+  width: 40%;
 }
 
 .interests-nationalities select option {
   background-color: var(--bg-color-2);
+}
+
+.interests-nationalities{
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  column-gap: 2em;
 }
 /*#endregion */
 
@@ -282,7 +298,7 @@ h2 {
   border-radius: 50px;
   outline: none;
   cursor: pointer;
-  margin-bottom: 50px;
+  margin-bottom: 2em;
   background: linear-gradient(
     to right,
     var(--bg-color-2) var(--fill-end),
@@ -324,7 +340,7 @@ fieldset {
   background-color: var(--bg-color-2);
   border: 0px;
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 1em;
 }
 
 legend {
@@ -346,13 +362,25 @@ textarea {
 /* Email + password */
 #password,
 #email {
+  padding: 4px;
   outline: none;
-  margin: 1rem;
 }
-.email-password{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+
+.password {
+  margin-left: 1rem;
+}
+
+.email-password {
+  display: flex;
+  justify-content: center;
+}
+
+/* Agreement */
+.agreement-of-terms {
+  margin-bottom: 1em;
+}
+.agreement-of-terms a{
+  color:var(--active-link-color);
 }
 /*#endregion */
 
@@ -396,8 +424,12 @@ textarea {
     justify-items: center;
   }
 
+
+  h1 {
+    margin-top: 25px;
+  }
   h2 {
-    margin-bottom: 70px;
+    margin-bottom: 35px;
   }
 
   .personal-info-and-photo {
@@ -408,29 +440,31 @@ textarea {
     grid-area: a;
     margin-bottom: 70px;
     width: 100%;
-/*     display: flex;
-    flex-direction: column;
-    justify-content: center; */
-  }
-
-  .interests-nationalities {
-    grid-area: b;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .interests-nationalities select{
-    width: 80%;
-    margin: auto;
-    margin-bottom: 40px;
-
   }
 
   .Upload-Photo {
     grid-area: c;
     margin: auto;
     margin-bottom: 50px;
+    width: 100%;
+    margin-bottom: 0;
+  }
 
+  .interests-nationalities {
+    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  
+  .interests-nationalities select{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  #about-me{
+    font-size: 0.75rem;
   }
 
   .the-rest {
@@ -438,11 +472,15 @@ textarea {
   }
 
   .email-password{
-        flex-direction: column;
+    flex-direction: column;
   }
 
   .email-password div {
     height: auto;
+  }
+
+  .email {
+    margin-bottom: 1em;
   }
 }
 /*#endregion */

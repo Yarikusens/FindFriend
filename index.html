@@ -23,10 +23,10 @@
           <a href="#">Home</a>
         </li>
         <li>
-        <a href="#">Browse</a>
+          <a href="#">Browse</a>
         </li>
         <li>
-        <a href="#">Profile</a>
+          <a href="#">Profile</a>
         </li>
     </nav>
   </header>
@@ -40,8 +40,8 @@
         <section class="personal-info-and-photo">
             <section class="personal-info">
                 <content class="FullName">
-                    <input placeholder="Name" name="Name">
-                    <input placeholder="Surname" name="Surname">
+                    <input placeholder="Name" name="Name" autocomplete="name">
+                    <input placeholder="Surname" name="Surname" autocomplete="family-name">
                 </content>
     
                 <br>
@@ -64,14 +64,14 @@
                 <br>
     
                 <content class="Birthday">
-                    <label for="birthday">Birthday:</label>
+                    <label for="birthdate">Birthdate:</label>
                     <input type="date" id="birthdate" name="birthdate">
                 </content>
             </section>
 
             <content class="Upload-Photo">
-                <input type="file" id="upload" hidden>
-                <label for = "Upload-Photo">+</label>
+                <input type="file" id="upload-photo" hidden>
+                <label for="upload-photo">+</label>
                 <p>Profile Picture</p>
 
             </content>
@@ -97,33 +97,32 @@
       </section>
 
       <section class="the-rest">
-        <label for="social-attitude" hidden="true">Social attitude</label> <!-- This should be visually hidden by display:none -->
+        <label for="social-attitude" class="visually-hidden">Social attitude</label>
         <span>Introvert</span>
         <input type="range" id="social-attitude" name="social-attitude" aria-describedby="social-attitude-hint" min="1" max="9"> <!-- max=9 is not very smooth, but it is easy to enter using just a keybord -->
         <span>Extravert</span>
-        <p id="social-attitude-hint" hidden="true">1 is the most introverted, 9 is the most extraverted</p> <!-- This should be visually hidden by display:none -->
-
-        <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
+        <p id="social-attitude-hint" class="visually-hidden">1 is the most introverted, 9 is the most extraverted</p>
+        <br>
         <fieldset>
             <legend>About me</legend>
             <textarea id="about-me" name="about-me" placeholder="Write a few words about yourself"></textarea> 
         </fieldset>
-        <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
+        <br>
         <div class="email-password">
           <div class="email">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" autocomplete="email" required>
           </div>
           <div class="password">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
           </div>
         </div>
-
-        <br> <!-- to move down. This line might be deleted after setting flexbox layout -->
-
-        <input type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
-        <label for="agreed">I agree to the terms of service</label>
+        <br>
+        <div class="agreement-of-terms">
+          <input type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required>
+          <label for="agreement-of-terms">I agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">terms of service</a></label>
+        </div>
       </section>
 
       <div class="button-container">
