@@ -123,18 +123,14 @@ nav a:hover {
 /*#endregion */
 
 /*#region 4. TITLE BLOCK (h1, h2, heart images) */
+
 h1 {
   font-family: "Indie Flower", cursive;
   font-weight: var(--title-h1-fw);
   font-size: var(--title-h1-fs);
   text-shadow: 2px 2px 4px var(--title-shadow-color);
   margin-block: 0em;
-  margin-top: 1em;
   position: relative;
-}
-
-img{
-  position: absolute;
 }
 h2 {
   font-size: var(--title-h2-fs);;
@@ -144,17 +140,32 @@ h2 {
   margin-bottom: 1em;
 }
 
+.title {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  justify-content: center;
+}
+
+.title > * {
+  position: relative;
+}
+
+img {
+  position: absolute;
+}
+
 .heart1 {
   width: 40px;
   transform: scaleX(-1) rotate(40deg);
   top: 15%;
-  left: 35%;
+  left: 25%;
 }
 
 .heart2 {
   width: 45px;
-  bottom: 5%;
-  right: 33%;
+  bottom: 15%;
+  right: 10%;
 }
 /*#endregion */
 
@@ -166,6 +177,11 @@ h2 {
   padding: none;
   flex-direction: row;
   margin-bottom: 1em;
+}
+
+.FullName,
+.Gender {
+  margin-bottom: 1.3em;
 }
 
 .personal-info {
@@ -249,6 +265,8 @@ h2 {
   justify-content: center;
   border-radius: 5px;
   font-size: var(--photo-label-fs);
+  font-family: none;
+  font-weight: 1000;
   margin-bottom: -27px;
 }
 /*#endregion */
@@ -340,7 +358,7 @@ fieldset {
   background-color: var(--bg-color-2);
   border: 0px;
   border-radius: 5px;
-  margin-bottom: 1em;
+  margin-bottom: 2.3em;
 }
 
 legend {
@@ -373,14 +391,21 @@ textarea {
 .email-password {
   display: flex;
   justify-content: center;
+  margin-bottom: 1.3em;
 }
 
 /* Agreement */
 .agreement-of-terms {
   margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .agreement-of-terms a{
   color:var(--active-link-color);
+}
+.agreement-of-terms label {
+  margin-left: 0.5em
 }
 .agreement-of-terms input {
   appearance: none;
@@ -437,10 +462,6 @@ textarea {
     justify-items: center;
   }
 
-
-  h1 {
-    margin-top: 25px;
-  }
   h2 {
     margin-bottom: 35px;
   }
@@ -474,6 +495,28 @@ textarea {
     width: 80%;
     margin: auto;
     margin-bottom: 30px;
+  }
+
+  .slider{
+    display: grid;
+    grid-template-areas:
+      "e f"
+      "g g";
+  }
+
+  .introvert-span{
+    text-align: left;
+    grid-area: e;
+  }
+
+  .extrovert-span{
+    text-align: right;
+    grid-area: f;
+  }
+
+  #social-attitude{
+    grid-area: g;
+    width: 100%;
   }
 
   #about-me{
