@@ -90,7 +90,7 @@
 
           <div class="Upload-Photo">
             <input type="file" id="upload-photo" hidden />
-            <label for="upload-photo">+</label>
+            <label for="upload-photo" tabindex="0">+</label>
             <p>Profile Picture</p>
           </div>
         </section>
@@ -211,6 +211,19 @@
 
       slider.addEventListener("input", updateSliderProgress);
       updateSliderProgress();
+
+      
+      const uploadInput = document.getElementById("upload-photo");
+      const uploadLabel = document.querySelector(
+        '.Upload-Photo label[for="upload-photo"]'
+      );
+
+      uploadLabel.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          uploadInput.click();
+        }
+      });
     </script>
   </body>
 </html>
