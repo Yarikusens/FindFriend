@@ -114,7 +114,6 @@ nav a {
   border-end-end-radius: 6px;
   border-end-start-radius: 6px;
   background-color: var(--nav-button-color);
-  margin: none;
 }
 
 nav a:hover {
@@ -173,8 +172,6 @@ img {
 .personal-info-and-photo {
   display: flex;
   width: 100%;
-  margin: none;
-  padding: none;
   flex-direction: row;
   margin-bottom: 1em;
 }
