@@ -27,20 +27,38 @@
 
     <main>
       <div class="title">
-        <img src="hearts.png" alt="" class="heart1" /> <!-- alt="" because the images are decorative, and screenreaders don't need to read it -->
+        <img src="hearts.png" alt="" class="heart1" />
+        <!-- alt="" because the images are decorative, and screenreaders don't need to read it -->
         <h1>Find Friend</h1>
         <img src="hearts.png" alt="" class="heart2" />
       </div>
       <h2>Sign Up</h2>
 
       <form>
-
         <!-- Personal info + profile picture -->
         <section class="personal-info-and-photo">
           <section class="personal-info">
             <div class="FullName">
-              <input type="text" placeholder="Name" name="Name" aria-label="Name" autocomplete="given-name" />
-              <input type="text" placeholder="Surname" name="Surname" aria-label="Surname" autocomplete="family-name" />
+              <input
+                type="text"
+                placeholder="Name"
+                name="Name"
+                aria-label="Name"
+                autocomplete="given-name"
+                required
+                oninput="this.value = this.value.replace(/[0-9]/g, '')"
+              />
+              <input
+                type="text"
+                placeholder="Surname"
+                name="Surname"
+                aria-label="Surname"
+                autocomplete="family-name"
+                required
+                pattern="[\p{L}'\]+"
+                title="Use letters only"
+                oninput="this.value = this.value.replace(/[0-9]/g, '')"
+              />
             </div>
 
             <div class="Gender">
@@ -60,7 +78,13 @@
 
             <div class="Birthday">
               <label for="birthdate">Birthdate:</label>
-              <input type="date" id="birthdate" name="birthdate" autocomplete="bday" />
+              <input
+                type="date"
+                id="birthdate"
+                name="birthdate"
+                autocomplete="bday"
+                required
+              />
             </div>
           </section>
 
@@ -80,7 +104,13 @@
             <option value="norwegian">Norwegian</option>
             <option value="ukrainian">Ukrainian</option>
           </select>
-          <select name="interests" aria-label="Interests" multiple size="1" required>
+          <select
+            name="interests"
+            aria-label="Interests"
+            multiple
+            size="1"
+            required
+          >
             <option value="" disabled selected hidden>Interests</option>
             <option value="books">Books</option>
             <option value="games">Games</option>
@@ -92,10 +122,19 @@
         <!-- Slider, about me, account details, terms -->
         <section class="the-rest">
           <div class="slider">
-            <label for="social-attitude" class="visually-hidden">Social attitude</label>
+            <label for="social-attitude" class="visually-hidden"
+              >Social attitude</label
+            >
             <span class="introvert-span">Introvert</span>
             <!-- max=9 is not very smooth, but it is easy to enter using just a keyboard -->
-            <input type="range" id="social-attitude" name="social-attitude" aria-describedby="social-attitude-hint" min="1" max="9" />
+            <input
+              type="range"
+              id="social-attitude"
+              name="social-attitude"
+              aria-describedby="social-attitude-hint"
+              min="1"
+              max="9"
+            />
             <span class="extrovert-span">Extrovert</span>
           </div>
           <p id="social-attitude-hint" class="visually-hidden">
@@ -104,24 +143,50 @@
 
           <fieldset>
             <legend>About me</legend>
-            <textarea id="about-me" name="about-me" placeholder="Write a few words about yourself"></textarea>
+            <textarea
+              id="about-me"
+              name="about-me"
+              placeholder="Write a few words about yourself"
+            ></textarea>
           </fieldset>
 
           <div class="email-password">
             <div class="email">
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+              />
             </div>
             <div class="password">
               <label for="password">Password:</label>
-              <input type="password" id="password" name="password" autocomplete="new-password" required />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="new-password"
+                required
+                maxlength="8"
+              />
             </div>
           </div>
 
           <div class="agreement-of-terms">
-            <input type="checkbox" id="agreement-of-terms" name="agreement-of-terms" value="agreed" required />
+            <input
+              type="checkbox"
+              id="agreement-of-terms"
+              name="agreement-of-terms"
+              value="agreed"
+              required
+            />
             <label for="agreement-of-terms">
-              I agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">terms of service</a>
+              I agree to the
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                >terms of service</a
+              >
             </label>
           </div>
         </section>
@@ -137,14 +202,14 @@
     </footer>
 
     <script>
-      const slider = document.getElementById('social-attitude');
+      const slider = document.getElementById("social-attitude");
 
       function updateSliderProgress() {
         const ratio = (slider.value - slider.min) / (slider.max - slider.min);
-        slider.style.setProperty('--progress', ratio);
+        slider.style.setProperty("--progress", ratio);
       }
 
-      slider.addEventListener('input', updateSliderProgress);
+      slider.addEventListener("input", updateSliderProgress);
       updateSliderProgress();
     </script>
   </body>

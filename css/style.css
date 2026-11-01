@@ -445,7 +445,17 @@ textarea {
 }
 /*#endregion */
 
-/*#region 9. RESPONSIVENESS */
+
+/*#region 9. VALIDATION*/
+.FullName input:user-invalid,
+.Birthday input:user-invalid,
+#email:user-invalid,
+#password:user-invalid{
+  outline: 2px solid rgb(255, 120, 120);
+}
+/*#endregion */
+
+/*#region 10. RESPONSIVENESS */
 @media (max-width: 650px) {
   main {
     min-width: 100px;
