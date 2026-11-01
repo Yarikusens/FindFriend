@@ -46,6 +46,7 @@
                 aria-label="Name"
                 autocomplete="given-name"
                 required
+                maxlength="50"
                 oninput="this.value = this.value.replace(/[0-9]/g, '')"
               />
               <input
@@ -55,8 +56,7 @@
                 aria-label="Surname"
                 autocomplete="family-name"
                 required
-                pattern="[\p{L}'\]+"
-                title="Use letters only"
+                maxlength="50"
                 oninput="this.value = this.value.replace(/[0-9]/g, '')"
               />
             </div>
