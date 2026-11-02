@@ -1,13 +1,13 @@
 :root{
   /* naming dictionary: bg - background, fs - font size, fw - font weight */
   
-  --regular-text-color: rgb(255, 255, 255); /* 255, 255, 255 = white*/
+  --regular-text-color: rgb(20, 20, 20); /* 255, 255, 255 = white*/
   --global-bg-color: rgb(173 205 242);
   --regular-fs: 1em;
   --invalid-color: rgb(255, 120, 120);
 
-  --bg-color-1: rgb(155 189 228);
-  --bg-color-2: rgb(128 163 201);
+  --bg-color-1: rgb(143, 165, 214);
+  --bg-color-2: rgb(139, 175, 214);
 
   --nav-fw: 650;
   --nav-fs: 1.25em;
@@ -17,11 +17,12 @@
   --nav-button-padding-horizontal: clamp(8px, 2vw, 30px);
   --nav-gap: clamp(10px, 3vw, 30px);
 
-  --title-h1-fs: 40px;
+  --heading: rgb(244, 246, 247);
+  --title-h1-fs: 3.5em;
   --title-h1-fw: 800;
-  --title-h2-fs: 20px;
+  --title-h2-fs: 2em;
   --title-h2-fw: 500;
-  --title-shadow-color: rgb(128, 128, 128); /* 128, 128, 128 = gray */
+  --title-shadow-color: rgb(0, 0, 0); /* 128, 128, 128 = gray */
 
   --radio-checked-bg: rgb(255, 255, 255); /* 255, 255, 255 = white*/
   --radio-checked-border: rgb(203, 221, 228);
@@ -31,8 +32,6 @@
   --social-attitude-bg: rgb(255, 255, 255); /* 255, 255, 255 = white*/
 
   --legend-fs: 23px;
-
-  --active-link-color: rgb(64, 129, 214);
 
   --submit-button-hover-bg: rgb(62, 70, 147);
   --submit-button-hover-shadow: rgb(223, 242, 255); /* 255, 255, 255 = white*/
@@ -138,14 +137,15 @@ h1 {
   font-family: "Indie Flower", cursive;
   font-weight: var(--title-h1-fw);
   font-size: var(--title-h1-fs);
-  text-shadow: 2px 2px 4px var(--title-shadow-color);
+  color: var(--heading);
+  text-shadow: 0px 0px 8px var(--title-shadow-color);
   margin-block: 0em;
   position: relative;
+  margin-bottom: 0.4em;
 }
 h2 {
   font-size: var(--title-h2-fs);;
   font-weight: var(--title-h2-fw);
-  text-shadow: 2px 2px 4px var(--title-shadow-color);
   margin-block: 0em;
   margin-bottom: 1em;
 }
@@ -166,14 +166,14 @@ img {
 }
 
 .heart1 {
-  width: 40px;
+  width: 50px;
   transform: scaleX(-1) rotate(40deg);
   top: 15%;
   left: 25%;
 }
 
 .heart2 {
-  width: 45px;
+  width: 55px;
   bottom: 15%;
   right: 10%;
 }
@@ -387,8 +387,8 @@ textarea {
   border: 0px;
   background-color: transparent;
   width: 100%;
+  overflow-wrap: anywhere;
   resize: none;
-  overflow: hidden;
   outline: none;
 }
 
@@ -396,6 +396,11 @@ textarea {
 #password,
 #email {
   padding: 4px;
+}
+
+#password:focus,
+#email:focus {
+  outline: none;
 }
 
 .password {
@@ -416,7 +421,7 @@ textarea {
   justify-content: center;
 }
 .agreement-of-terms a{
-  color:var(--active-link-color);
+  text-decoration-thickness: 2px;
 }
 .agreement-of-terms label {
   margin-left: 0.5em
@@ -489,6 +494,10 @@ textarea {
   visibility: visible;
 }
 
+#agreement-of-terms:invalid {
+  outline: 2px solid var(--invalid-color);
+}
+
 /*#endregion */
 
 /*#region 10. RESPONSIVENESS */
@@ -505,9 +514,20 @@ textarea {
     justify-items: center;
   }
 
+  h1{
+    font-size: 2.5em;
+  }
   h2 {
+    font-size: 1.5em;
     margin-bottom: 35px;
   }
+  .heart1 {
+    width: 42px;
+  }
+  .heart2{
+    width: 45px;
+  }
+  
 
   .personal-info-and-photo {
     display: contents;

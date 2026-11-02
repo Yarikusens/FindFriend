@@ -32,7 +32,7 @@
         <h1>Find Friend</h1>
         <img src="hearts.png" alt="" class="heart2" />
       </div>
-      <h2>Sign Up</h2>
+      <h2>Registration</h2>
 
       <form>
         <!-- Personal info + profile picture -->
@@ -47,8 +47,7 @@
                   name="Name"
                   aria-label="Name"
                   autocomplete="given-name"
-                  maxlength="50"
-                  oninput="this.value = this.value.replace(/[0-9]/g, '')"
+                  pattern="[A-Za-z]{1,32}"
                 />
                 <span class="error">Not a valid name</span>
               </div>
@@ -60,9 +59,7 @@
                   name="Surname"
                   aria-label="Surname"
                   autocomplete="family-name"
-                  pattern="[a-zA-Z]"
-                  maxlength="50"
-                  oninput="this.value = this.value.replace(/[0-9]/g, '')"
+                  pattern="[A-Za-z]{1,32}"
                 />
                 <span class="error">Not a valid surname</span>
               </div>
@@ -171,7 +168,6 @@
                 id="email"
                 name="email"
                 autocomplete="email"
-                
               />
               <span class="error">Not a valid email</span>
             </div>
@@ -183,9 +179,9 @@
                 id="password"
                 name="password"
                 autocomplete="new-password"
-                maxlength="8"
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\-\(\)\.&amp;@?'#,!$%^&*\/&quot;+]).{8,}"
               />
-              <span class="error">Not a valid password</span>
+              <span class="error">Character, number, capital letter, min. 8</span>
             </div>
           </div>
 
@@ -195,11 +191,10 @@
               id="agreement-of-terms"
               name="agreement-of-terms"
               value="agreed"
-              required
             />
             <label for="agreement-of-terms">
               I agree to the
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
                 >terms of service</a
               >
             </label>
