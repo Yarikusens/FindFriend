@@ -39,26 +39,33 @@
         <section class="personal-info-and-photo">
           <section class="personal-info">
             <div class="FullName">
-              <input
-                type="text"
-                placeholder="Name"
-                name="Name"
-                aria-label="Name"
-                autocomplete="given-name"
-                required
-                maxlength="50"
-                oninput="this.value = this.value.replace(/[0-9]/g, '')"
-              />
-              <input
-                type="text"
-                placeholder="Surname"
-                name="Surname"
-                aria-label="Surname"
-                autocomplete="family-name"
-                required
-                maxlength="50"
-                oninput="this.value = this.value.replace(/[0-9]/g, '')"
-              />
+              <div class="name-group">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Name"
+                  name="Name"
+                  aria-label="Name"
+                  autocomplete="given-name"
+                  maxlength="50"
+                  oninput="this.value = this.value.replace(/[0-9]/g, '')"
+                />
+                <span class="error">Not a valid name</span>
+              </div>
+              <div class="surname-group">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Surname"
+                  name="Surname"
+                  aria-label="Surname"
+                  autocomplete="family-name"
+                  pattern="[a-zA-Z]"
+                  maxlength="50"
+                  oninput="this.value = this.value.replace(/[0-9]/g, '')"
+                />
+                <span class="error">Not a valid surname</span>
+              </div>
             </div>
 
             <div class="Gender">
@@ -78,13 +85,18 @@
 
             <div class="Birthday">
               <label for="birthdate">Birthdate:</label>
-              <input
-                type="date"
-                id="birthdate"
-                name="birthdate"
-                autocomplete="bday"
-                required
-              />
+              <div class="Birthday-group">
+                <input
+                  type="date"
+                  id="birthdate"
+                  name="birthdate"
+                  autocomplete="bday"
+                  min="1900-01-01"
+                  max="2026-01-01"
+                  class="input"
+                />
+                <span class="error">Must be between 1900 and 2026</span>
+              </div>
             </div>
           </section>
 
@@ -154,23 +166,26 @@
             <div class="email">
               <label for="email">Email:</label>
               <input
+                class="input"
                 type="email"
                 id="email"
                 name="email"
                 autocomplete="email"
-                required
+                
               />
+              <span class="error">Not a valid email</span>
             </div>
             <div class="password">
               <label for="password">Password:</label>
               <input
+                class="input"
                 type="password"
                 id="password"
                 name="password"
                 autocomplete="new-password"
-                required
                 maxlength="8"
               />
+              <span class="error">Not a valid password</span>
             </div>
           </div>
 

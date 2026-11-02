@@ -4,6 +4,7 @@
   --regular-text-color: rgb(255, 255, 255); /* 255, 255, 255 = white*/
   --global-bg-color: rgb(173 205 242);
   --regular-fs: 1em;
+  --invalid-color: rgb(255, 120, 120);
 
   --bg-color-1: rgb(155 189 228);
   --bg-color-2: rgb(128 163 201);
@@ -66,7 +67,17 @@ body {
 }
 
 .visually-hidden {
-  display: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 /*#endregion */
 
@@ -208,13 +219,21 @@ img {
 .FullName input,
 .Birthday input {
   border: 0px;
-  width: 45%;
   border-radius: 5px;
   padding: 4px;
   background-color: var(--bg-color-1);
   outline: none;
 }
 
+.FullName > div ,
+.Birthday > div {
+  position: relative;
+}
+
+.FullName input {
+  width: 100%;
+  box-sizing: border-box;
+}
 /* Gender radio buttons */
 .Gender {
   width: 100%;
@@ -311,7 +330,6 @@ img {
   padding: 0;
   border: 0;
   border-radius: 50px;
-  outline: none;
   cursor: pointer;
   margin-bottom: 2em;
   background: linear-gradient(
@@ -378,7 +396,6 @@ textarea {
 #password,
 #email {
   padding: 4px;
-  outline: none;
 }
 
 .password {
@@ -445,14 +462,33 @@ textarea {
 }
 /*#endregion */
 
-
 /*#region 9. VALIDATION*/
-.FullName input:user-invalid,
-.Birthday input:user-invalid,
-#email:user-invalid,
-#password:user-invalid{
-  outline: 2px solid rgb(255, 120, 120);
+
+.name-group,
+.surname-group,
+.Birthday,
+.email,
+.password {
+  position: relative;
 }
+
+.error {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  visibility: hidden;
+  font-size: 0.85rem;
+  color: var(--invalid-color);
+}
+
+.input:not(:focus):invalid {
+  outline: 2px solid var(--invalid-color);
+}
+
+.input:not(:focus):invalid ~ .error {
+  visibility: visible;
+}
+
 /*#endregion */
 
 /*#region 10. RESPONSIVENESS */
@@ -483,6 +519,10 @@ textarea {
     width: 100%;
   }
 
+  .FullName {
+    gap: 1em;
+  }
+  
   .Upload-Photo {
     grid-area: c;
     margin: auto;
