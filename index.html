@@ -32,13 +32,13 @@
         <h1>Find Friend</h1>
         <img src="hearts.png" alt="" class="heart2" />
       </div>
-      <h2>Registration</h2>
+      <h2 id="form-title">Registration</h2>
 
-      <form>
+      <form aria-labelledby="form-title">
         <!-- Personal info + profile picture -->
-        <section class="personal-info-and-photo">
-          <section class="personal-info">
-            <div class="FullName">
+        <div class="personal-info-and-photo">
+          <div class="personal-info">
+            <div class="full-name">
               <div class="name-group">
                 <input
                   class="input"
@@ -65,7 +65,7 @@
               </div>
             </div>
 
-            <div class="Gender">
+            <div class="gender">
               <div>
                 <input type="radio" id="male" name="gender" value="male" />
                 <label for="male">Male</label>
@@ -80,9 +80,9 @@
               </div>
             </div>
 
-            <div class="Birthday">
+            <div class="birthday">
               <label for="birthdate">Birthdate:</label>
-              <div class="Birthday-group">
+              <div class="birthday-group">
                 <input
                   type="date"
                   id="birthdate"
@@ -95,17 +95,17 @@
                 <span class="error">Must be between 1900 and 2026</span>
               </div>
             </div>
-          </section>
+          </div>
 
-          <div class="Upload-Photo">
-            <input type="file" id="upload-photo" hidden />
-            <label for="upload-photo" tabindex="0">+</label>
+          <div class="upload-photo">
+            <input type="file" id="upload-photo" class="visually-hidden" />
+            <label for="upload-photo">+</label>
             <p>Profile Picture</p>
           </div>
-        </section>
+        </div>
 
         <!-- Nationality + interests -->
-        <section class="interests-nationalities">
+        <div class="interests-nationalities">
           <select name="nationality" aria-label="Nationality" required>
             <option value="" disabled selected hidden>Nationality</option>
             <option value="estonian">Estonian</option>
@@ -120,16 +120,16 @@
             size="1"
             required
           >
-            <option value="" disabled selected hidden>Interests</option>
+            <option value="" disabled selected hidden>Interests</option> <!-- Working with multiple select is hard without JS. Here option "Interests" is used is a title of the dropdown, but it breaks the count of chosen options((( -->
             <option value="books">Books</option>
             <option value="games">Games</option>
             <option value="movies">Movies</option>
             <option value="travel">Travel</option>
           </select>
-        </section>
+        </div>
 
         <!-- Slider, about me, account details, terms -->
-        <section class="the-rest">
+        <div class="the-rest">
           <div class="slider">
             <label for="social-attitude" class="visually-hidden"
               >Social attitude</label
@@ -150,12 +150,13 @@
             1 is the most introverted, 9 is the most extroverted
           </p>
 
-          <fieldset>
+          <fieldset class="about-me">
             <legend>About me</legend>
             <textarea
               id="about-me"
               name="about-me"
               placeholder="Write a few words about yourself"
+              aria-label="About me"
             ></textarea>
           </fieldset>
 
@@ -194,12 +195,10 @@
             />
             <label for="agreement-of-terms">
               I agree to the
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
-                >terms of service</a
-              >
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">terms of service</a>
             </label>
           </div>
-        </section>
+        </div>
 
         <div class="button-container">
           <button type="submit" id="button">Sign Up</button>
@@ -211,7 +210,7 @@
       <p>@Copyrights to VIA University College</p>
     </footer>
 
-    <script>
+    <script> <!-- This script is needed to make the slider display "progress", but not just a pointer. It seems that this could be styled only with JS  -->
       const slider = document.getElementById("social-attitude");
 
       function updateSliderProgress() {
@@ -221,19 +220,6 @@
 
       slider.addEventListener("input", updateSliderProgress);
       updateSliderProgress();
-
-      
-      const uploadInput = document.getElementById("upload-photo");
-      const uploadLabel = document.querySelector(
-        '.Upload-Photo label[for="upload-photo"]'
-      );
-
-      uploadLabel.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          uploadInput.click();
-        }
-      });
     </script>
   </body>
 </html>
